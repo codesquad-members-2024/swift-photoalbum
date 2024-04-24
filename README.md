@@ -88,3 +88,66 @@ UIScrollVIew를 상속받는 클래스이고, cell을 기반으로 재사용해�
 
 </div>
 </details>
+
+<details>
+<summary>사진앨범 접근</summary>
+
+## 🎯주요 작업
+
+- [x]  사진앨범 접근
+
+## 📚학습 키워드
+
+### AVFoundation
+
+애플의 미디어 프레임워크.
+
+주요 기능으로는
+
+- 미디어 캡쳐
+- 미디어 재생
+- 미디어 편집
+- 미디어 파일 내용 분석
+
+가장 자주 사용되는 기능은 미디어 재생이며, AVFoundation을 사용하면 효율적으로 재생을 로드하고 제어할 수 있다.
+
+그러나, AVFoundation은 UIKit 아래에 있기 때문에 재생 제어를 위한 표준 UI를 제공하지 않는다. 이를 해결하기 위해 AVKit프레임워크에서 제공하는 기능에 의존하는 것
+
+### AVKit
+
+AVFoundation 위에 있는 보조 프레임워크.
+
+이 프레임워크를 사용하면 플랫폼의 기본재생환경과 일치하는 앱용 플레이어 인터페이스를 쉽게 제공할 수 있다.
+
+### Photos 프레임워크 (PhotoKit)
+
+사진 및 비디오에 직접 접근하기 위한 Photos 프레임워크 - 사진가져오기
+
+이 프레임워크를 사용하면 화면에 표시 및 재생할 Asset를 검색하고 사용하여 작업할 수 있다.
+
+### PHAsset
+
+Photos 라이브러리 내의 하나의 이미지나 비디오를 나타냄.
+
+해당 Asset의 메타데이터를 접근할 수 있게 해준다.
+
+메타데이터 ( 속성 정보/ 생성날짜, 위치, 유형, 해상도 정보 등)
+
+### **PHCachingImageManager**
+
+PHImageManager의 서브클래스
+
+요청한 이미지를 캐싱할 수 있게 해줌.
+
+PHCachingImageManager가 요청한 크기에 맞추어 PHAsset으로부터 이미지를 가져옴
+
+### **PHPhotoLibrary**
+
+애플리케이션은 사진 라이브러리에 변경을 요청할 수 있고, 사용자의 동의를 거쳐 사진을 추가, 삭제, 수정할 수 있다.
+
+## 🤔결과
+<img width="389" alt="스크린샷 2024-04-24 오전 11 43 06" src="https://github.com/joho2022/joho2022.github.io/assets/104732020/b236ee6e-aa20-41da-a53c-cb55130a1e13">
+
+
+</div>
+</details>

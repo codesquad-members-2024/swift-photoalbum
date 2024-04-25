@@ -449,6 +449,7 @@
 				DEVELOPMENT_TEAM = 9H57LB393L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = photoAlbum/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자의 사진을 앱에서 표시하고 관리하기 위해 사진 앨범에 접근이 필요합니다. 이 권한은 테스트 용으로 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -477,6 +478,7 @@
 				DEVELOPMENT_TEAM = 9H57LB393L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = photoAlbum/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자의 사진을 앱에서 표시하고 관리하기 위해 사진 앨범에 접근이 필요합니다. 이 권한은 테스트 용으로 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

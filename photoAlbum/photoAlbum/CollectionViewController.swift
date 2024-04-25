@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Photos
 
 class CollectionViewController: UIViewController {
+    var allPhotos: PHFetchResult<PHAsset>!
+    var imageManager: PHCachingImageManager!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -15,35 +19,56 @@ class CollectionViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        fetchPhotos()
+        PHPhotoLibrary.shared().register(self)
+    }
+    
+    private func fetchPhotos() {
+        let allPhotosOptions = PHFetchOptions()
+        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
+        imageManager = PHCachingImageManager()
     }
 }
 
 extension CollectionViewController: UICollectionViewDataSource {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return allPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
         
-        cell.backgroundColor = randomColor()
+        let asset = allPhotos.object(at: indexPath.item)
+        imageManager.requestImage(for: asset,
+                                  targetSize: CGSize(width: 100, height: 100),
+                                  contentMode: .aspectFill,
+                                  options: nil) { image, _ in
+            if let image = image {
+                cell.configure(with: image)
+            }
+        }
         
         return cell
-    }
-    
-    private func randomColor() -> UIColor {
-        return UIColor(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1),
-            alpha: 1.0
-        )
     }
 }
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: 100, height: 100)
+    }
+}
+
+extension CollectionViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        DispatchQueue.main.async {
+            if let changes = changeInstance.changeDetails(for: self.allPhotos) {
+                self.allPhotos = changes.fetchResultAfterChanges
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 

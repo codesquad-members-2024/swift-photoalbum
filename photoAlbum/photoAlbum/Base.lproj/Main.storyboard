@@ -65,7 +65,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Xd-9d-5R3" secondAttribute="trailing" id="jTl-rk-sEO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="cCd-D7-6dV"/>
+                    <navigationItem key="navigationItem" title="Photos" id="cCd-D7-6dV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="agT-8E-BFS">
+                            <connections>
+                                <action selector="addBtnTapped:" destination="BYZ-38-t0r" id="xF9-Nt-18V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="3Xd-9d-5R3" id="4N4-Se-b2n"/>
                     </connections>

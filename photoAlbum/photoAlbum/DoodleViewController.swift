@@ -71,12 +71,22 @@ class DoodleViewController: UIViewController {
     
     @objc func saveImage(_ sender: Any) {
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first,
-              let cell = collectionView.cellForItem(at: indexPath) as? DoodleCollectionViewCell,
-              let image = cell.imageView.image else {
+              indexPath.row < doodles.count else {
             return
         }
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        dismiss(animated: true)
+        
+        let doodle = doodles[indexPath.row]
+        if let url = URL(string: doodle.image) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data,
+                      let image = UIImage(data: data), error == nil else { return }
+                
+                DispatchQueue.main.async {
+                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                    self.dismiss(animated: true)
+                }
+            }.resume()
+        }
     }
 
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {

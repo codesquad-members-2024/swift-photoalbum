@@ -35,14 +35,14 @@ class DoodleCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with doodle: Doodle) {
-        DispatchQueue.global().async {
-            if let url = URL(string: doodle.image),
-               let data = try? Data(contentsOf: url),
-               let image = UIImage(data: data) {
+        if let url = URL(string: doodle.image) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil,
+                      let image = UIImage(data: data) else { return }
                 DispatchQueue.main.async {
                     self.imageView.image = image
                 }
-            }
+            }.resume()
         }
     }
 }

@@ -5,7 +5,6 @@
 //  Created by 조호근 on 4/26/24.
 //
 
-import UIKit
 import Photos
 
 class PhotoManager: NSObject {

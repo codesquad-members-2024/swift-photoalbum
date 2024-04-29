@@ -10,6 +10,8 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     var photoManager: PhotoManager!
+    var videoManager: VideoManager!
+    
     
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,6 +19,7 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoManager = PhotoManager()
+        videoManager = VideoManager()
         registerNotification()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -45,7 +48,8 @@ class CollectionViewController: UIViewController {
     }
     
     @IBAction func doneBtnTapped(_ sender: Any) {
-        print("눌렸습니다.")
+        let size = CGSize(width: 100.0, height: 100.0)
+        videoManager.build(outputSize: size, collectionView: collectionView)
     }
 }
 

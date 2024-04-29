@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import PhotosUI
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var livePhotoBadge: UIImageView!
     
-    func configure(with image: UIImage) {
-        imageView.image = image
+    func configure(with photoInfo: PhotoInfo) {
+        imageView.image = photoInfo.image
+        livePhotoBadge.isHidden = !photoInfo.isLivePhoto
+        if photoInfo.isLivePhoto {
+            livePhotoBadge.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+        }
     }
 }

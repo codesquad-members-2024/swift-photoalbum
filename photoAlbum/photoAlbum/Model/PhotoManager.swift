@@ -38,13 +38,16 @@ class PhotoManager: NSObject {
         imageManager = PHCachingImageManager()
     }
     
-    func makePhotoData(index: Int, size: CGSize, completion: @escaping (UIImage?) -> Void) {
+    func makePhotoData(index: Int, size: CGSize, completion: @escaping (PhotoInfo) -> Void) {
         let asset = self.allPhotos.object(at: index)
+        let isLivePhoto = asset.mediaSubtypes.contains(.photoLive)
+        
         imageManager.requestImage(for: asset,
                                   targetSize: size,
                                   contentMode: .aspectFill,
                                   options: nil) { image, _ in
-            completion(image)
+            let photoInfo = PhotoInfo(image: image, isLivePhoto: isLivePhoto)
+            completion(photoInfo)
         }
     }
 }

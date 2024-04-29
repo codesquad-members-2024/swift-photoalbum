@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D68CD8982BDFD7D7005BD700 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CD8972BDFD7D7005BD700 /* PhotoInfo.swift */; };
 		D6AFA6502BD8F2590093F3B8 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = D6AFA64F2BD8F2590093F3B8 /* doodle.json */; };
 		D6AFA6532BD9FEA50093F3B8 /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AFA6522BD9FEA50093F3B8 /* DoodleViewController.swift */; };
 		D6AFA6552BDA60E00093F3B8 /* DoodleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AFA6542BDA60E00093F3B8 /* DoodleCollectionViewCell.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D68CD8972BDFD7D7005BD700 /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		D6AFA64F2BD8F2590093F3B8 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
 		D6AFA6522BD9FEA50093F3B8 /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
 		D6AFA6542BDA60E00093F3B8 /* DoodleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				D6AFA6562BDA79C30093F3B8 /* Doodle.swift */,
 				D6AFA6592BDB76DE0093F3B8 /* PhotoManager.swift */,
+				D68CD8972BDFD7D7005BD700 /* PhotoInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68CD8982BDFD7D7005BD700 /* PhotoInfo.swift in Sources */,
 				D6FB9FAB2BD61E7800D5467E /* CollectionViewController.swift in Sources */,
 				D6AFA6552BDA60E00093F3B8 /* DoodleCollectionViewCell.swift in Sources */,
 				D6AFA65A2BDB76DE0093F3B8 /* PhotoManager.swift in Sources */,

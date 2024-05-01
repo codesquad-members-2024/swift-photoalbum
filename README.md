@@ -467,3 +467,37 @@ guard let url = Bundle.main.url(forResource: "doodle", withExtension: "json")
 
 </div>
 </details>
+
+<details>
+<summary>동영상 내보내기</summary>
+# 🎯주요 작업
+
+- [x]  선택될 때 표시
+- [x]  Done 버튼
+    - [x]  selectedBackgroundView 사용
+- [x]  동영상 버튼 만들기
+
+# 📚학습 키워드
+
+## UICollectionViewDataSource
+
+컬렉션뷰를 화면에 보여주기 위해 필요한 함수
+
+- numberOfItemsInSection : 지정된 섹션에 표시할 항목의 수
+- cellForItemAt : 컬렉션 뷰의 지정된 위치에 표시할 셀을 요청
+- numberOfSections : 컬렉션 뷰의 섹션의 수 ( 구현하지 않으면 기본 1)
+
+## UICollectionViewDelegate
+
+컬렉션뷰 동작을 처리하기 위해 필요한 함수
+
+# 💻고민과 해결
+
+- PhotoManager에서 image만 전달하는 것이 아니라 라이브포토여부 정보도 같이 전달하고자 의도하였습니다.
+- VideoManager는 이미지 → 비디오 변환과정을 각 함수로 과정단위를 쪼개고, 최종적으로 build메소드를 통해 비디오 저장까지의 전체과정을 나타내도록 의도하였습니다.
+
+# 🤔결과
+![최종결과](https://github.com/codesquad-members-2024/swift-todo/assets/104732020/00d51a69-2657-43b5-bd24-ae5b971bd0ee)
+
+</div>
+</details>
